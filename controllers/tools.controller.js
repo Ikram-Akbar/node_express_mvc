@@ -1,10 +1,13 @@
 module.exports.allTools = (req, res, next) => {
   const {baseUrl,ip,route} = req;
-  console.log(baseUrl,ip,route);
+  // console.log(baseUrl,ip,route);
   res.send("tools found from controller");
 };
 module.exports.sendTools = (req, res) => {
   res.send("send a tool");
+};
+module.exports.toolsWithId = (req, res, next) => {
+  res.send("tools with id ");
 };
 
 /**

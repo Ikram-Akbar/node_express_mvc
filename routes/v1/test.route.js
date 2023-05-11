@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const toolsController = require('../../controllers/tools.controller');
+const toolsController = require("../../controllers/tools.controller");
+const viewCount = require("../../middleware/viewCount");
 
 // router.get("/", (req, res) => {
 //   res.send("tools found ");
@@ -11,9 +12,8 @@ const toolsController = require('../../controllers/tools.controller');
 // });
 
 //shorthand:
-router
-  .route("/")
-  .get(toolsController.allTools)
-  .post(toolsController.sendTools);
+router.route("/").get(toolsController.allTools).post(toolsController.sendTools);
+
+router.route("/:id").get(viewCount,toolsController.toolsWithId);
 
 module.exports = router;

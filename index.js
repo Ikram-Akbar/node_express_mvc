@@ -9,9 +9,12 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const nodemailer = require("nodemailer");
 const dbConnect = require("./utils/dbConnect");
 const testRoute = require("./routes/v1/test.route");
+const viewCount = require("./middleware/viewCount");
 
+//middleware
 app.use(cors());
 app.use(express.json());
+// app.use(viewCount)
 
 
 
